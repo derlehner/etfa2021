@@ -1,0 +1,58 @@
+[{
+    "dtid": "Raspberry1",
+    "content": {
+        "$metadata": {
+            "$model": "dtmi:org:example:AirQualityController;2"
+        },
+        "CO2Sensor": {
+            "$metadata":{
+            },
+            "type": "testType"
+        }
+    }
+
+},
+{
+	"@type": "Interface",
+	"displayName": "AirQualitySensor",
+	"@id": "dtmi:org:example:cotwoSensor;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "double",
+			"displayName": "carbonDioxideValue",
+			"@id": "dtmi:org:example:cotwoSensor:cotwoValue;2",
+			"name": "carbonDioxideValue"
+			},
+			{
+			"@type": [
+				"Property"
+			],
+			"schema": "string",
+			"displayName": "type",
+			"@id": "dtmi:org:example:cotwoSensor:type;2",
+			"name": "type"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}
+
+,
+{
+	"@type": "Interface",
+	"displayName": "AirQualityController",
+	"comment": "This is a comment",
+	"@id": "dtmi:org:example:AirQualityController;2",
+	"contents":[
+			{
+			"@type": ["Component"],
+			"name": "CO2Sensor",
+			"displayName": "CO2Sensor",
+			"@id": "dtmi:org:example:a;2",
+			"schema": "dtmi:org:example:cotwoSensor;2"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}]

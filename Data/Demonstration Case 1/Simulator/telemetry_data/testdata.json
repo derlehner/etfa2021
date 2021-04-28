@@ -1,0 +1,149 @@
+[
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1001
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1010
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1010
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1010
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1050
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1050
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1050
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1050
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1100
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+         "carbonDioxideValue": 1100
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1100
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1100
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1100
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    },
+    {
+        "dtid": "Raspberry1",
+        "componentId": "CO2Sensor",
+        "content":{
+            "carbonDioxideValue": 1000
+        }
+    }
+]
