@@ -1,0 +1,33 @@
+-- @path DTDL=/DTML/model/dTML.ecore
+-- @path CAEX=/caex.caex30/model/CAEX30.ecore
+
+module main;
+create OUT : DTDL from IN : CAEX;
+
+rule root2root {
+	from
+		caex: CAEX!DocumentRoot
+	to
+		dtdl: DTDL!DigitalTwinEnvironment (
+			name <- caex.cAEXFile.fileName.toString()
+		)
+	do{
+		dtdl.types <- Set{};
+		for(sUCLib in caex.cAEXFile.systemUnitClassLib){
+			for(sUC in sUCLib.systemUnitClass){
+				dtdl.types <- dtdl.types->including(thisModule.newInterface(sUC));
+				for(containedSUC in sUC.systemUnitClass){
+					dtdl.types <- dtdl.types->including(thisModule.newInterface(containedSUC));
+				}
+			}
+		}
+		
+		dtdl.instances <- Set{};
+		for(instancehier in caex.cAEXFile.instanceHierarchy){
+			for(ie in instancehier.internalElement){
+				dtdl.instances <- dtdl.instances->including(thisModule.newTwin(ie));
+			}
+		}
+	}
+}
+

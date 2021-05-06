@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DTML:Interface xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DTML="http://www.example.org/DTML" displayName="Temperature Sensor">
+  <id scheme="at:jku:se:temperaturesensor" path="dtmi" version="1"/>
+  <contents xsi:type="DTML:Telemetry" displayName="Temperature" type="Temperature" name="temperature" schema="double" unit="degreeCelsius"/>
+  <contents xsi:type="DTML:Telemetry" displayName="Humidity" type="Humidity" name="humindity" schema="double" unit="gramPerCubicMetre"/>
+</DTML:Interface>

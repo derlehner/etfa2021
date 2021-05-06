@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/DTML/src-gen" creationIcons="false" editDirectory="/DTML.edit/src-gen"
+    editorDirectory="/DTML.editor/src-gen" modelPluginID="DTML" modelName="DTML" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>dTML.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="DTML" disposableProviderFactory="true" ecorePackage="dTML.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dTML.ecore#//Schema">
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/DATETIME"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/DURATION"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/LONG"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Schema/TIME"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dTML.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Type/ACCELERATION"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Type/HUMIDITY"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Type/TEMPERATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Type/NONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dTML.ecore#//Unit">
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/metrePerSecondSquared"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/centimetrePerSecondSquared"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/gForce"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/kilogramPerCubicMetre"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/gramPerCubicMetre"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/kelvin"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/degreeCelsius"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/degreeFahrenheit"/>
+      <genEnumLiterals ecoreEnumLiteral="dTML.ecore#//Unit/NONE"/>
+    </genEnums>
+    <genClasses ecoreClass="dTML.ecore#//InterfaceContent"/>
+    <genClasses ecoreClass="dTML.ecore#//Interface">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//Interface/contents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//Interface/extends"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Component/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//Component/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Relationship">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Relationship/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Relationship/minMultiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Relationship/maxMultiplicity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//Relationship/properties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//Relationship/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Relationship/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Property/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Property/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Property/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute dTML.ecore#//Property/unit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute dTML.ecore#//Property/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Command">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Command/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//Command/request"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//Command/response"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Telemetry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Telemetry/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Telemetry/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute dTML.ecore#//Telemetry/schema"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute dTML.ecore#//Telemetry/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DTMI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DTMI/scheme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DTMI/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DTMI/version"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//CommandPayload">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//CommandPayload/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//CommandPayload/displayName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//CommandPayload/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//CommandPayload/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute dTML.ecore#//CommandPayload/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DTElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DTElement/displayName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DTElement/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DTElement/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//DTElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Quantity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//Quantity/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//Quantity/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Unit_Test">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Unit_Test/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Unit_Test/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Unit_Test/dimensions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Unit_Test/conversionFactor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Unit_Test/offset"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//UReal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//UReal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//Field/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//Field/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DTObject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//DTObject/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DTArray">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//DTArray/elementSchema"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DTMap">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//DTMap/mapKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//DTMap/mapValue"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DTEnum">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//DTEnum/valueSchema"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//DTEnum/enumValues"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DigitalTwin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//DigitalTwin/contents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//DigitalTwin/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DigitalTwin/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//ComponentInstance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//ComponentInstance/schema"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//ComponentInstance/type"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//ComponentInstance/contents"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//RelationshipInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//RelationshipInstance/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//RelationshipInstance/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//RelationshipInstance/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//PropertyInstance">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//PropertyInstance/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//PropertyInstance/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//CommandInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//CommandInstance/request"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//CommandInstance/response"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//CommandInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//CommandPayloadInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//CommandPayloadInstance/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//CommandPayloadInstance/value"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DataPoint"/>
+    <genClasses ecoreClass="dTML.ecore#//DTContent"/>
+    <genClasses ecoreClass="dTML.ecore#//Schema_Test"/>
+    <genClasses ecoreClass="dTML.ecore#//ComplexSchema"/>
+    <genClasses ecoreClass="dTML.ecore#//EnumSchemaTypes"/>
+    <genClasses ecoreClass="dTML.ecore#//EnumValue"/>
+    <genClasses ecoreClass="dTML.ecore#//KeyValueType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//KeyValueType/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//KeyValueType/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//ObjectInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//ObjectInstance/fieldInstances"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//ObjectInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//SimpleSchema"/>
+    <genClasses ecoreClass="dTML.ecore#//DTBoolean"/>
+    <genClasses ecoreClass="dTML.ecore#//DTString"/>
+    <genClasses ecoreClass="dTML.ecore#//DTInteger"/>
+    <genClasses ecoreClass="dTML.ecore#//FieldInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//FieldInstance/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//FieldInstance/value"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//MapInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//MapInstance/keys"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//MapInstance/values"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//MapInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//KeyValueInstance">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//KeyValueInstance/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//KeyValueInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//ArrayInstance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//ArrayInstance/values"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dTML.ecore#//ArrayInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//DigitalTwinEnvironment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//DigitalTwinEnvironment/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//DigitalTwinEnvironment/instances"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dTML.ecore#//DigitalTwinEnvironment/types"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//StringInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//StringInstance/value"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//IntInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dTML.ecore#//IntInstance/value"/>
+    </genClasses>
+    <genClasses ecoreClass="dTML.ecore#//ComponentContent"/>
+  </genPackages>
+</genmodel:GenModel>

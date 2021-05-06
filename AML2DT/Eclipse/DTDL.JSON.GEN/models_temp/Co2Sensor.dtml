@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DTML:Interface xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DTML="http://www.example.org/DTML" displayName="CO2 Sensor">
+  <id scheme="at:jku:se:ccs811" path="dtmi" version="1"/>
+  <contents xsi:type="DTML:Telemetry" displayName="eCO2 value" name="co2Value" schema="double"/>
+  <contents xsi:type="DTML:Telemetry" displayName="Temperature" type="Temperature" name="temperature" unit="degreeCelsius"/>
+  <contents xsi:type="DTML:Telemetry" name="tvoc" schema="double"/>
+</DTML:Interface>

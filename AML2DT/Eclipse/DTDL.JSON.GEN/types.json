@@ -1,0 +1,75 @@
+{
+	"types": [
+			 {
+			 	"name": "Person",
+			 	"fullName":  "Person",
+			 	"nullable":  false,
+			 	"throwable":  false,
+			 	"astTypeName":  "ClassType",
+			 	"sign": false,
+			 	"size": 64,
+			 	"fields":[
+			 	],
+			 	"constructors":[]
+			 },
+			 {
+			 	"name": "PersonCalculator",
+			 	"fullName":  "PersonCalculator",
+			 	"nullable":  false,
+			 	"throwable":  false,
+			 	"astTypeName":  "ClassType",
+			 	"sign": false,
+			 	"size": 64,
+			 	"fields":[
+			 	],
+			 	"constructors":[]
+			 },
+			 {
+			 	"name": "generalError",
+			 	"fullName":  "",
+			 	"nullable":  false,
+			 	"throwable":  false,
+			 	"sign": false,
+			 	"size": 64,
+			 	"fields":[
+			 	],
+			 	"constructors":[]
+			 },
+			 {
+			 	"name": "bool",
+			 	"fullName":  "bool",
+			 	"nullable":  false,
+			 	"throwable":  false,
+			 	"astTypeName":  "BooleanType",
+			 	"sign": false,
+			 	"size": 64,
+			 	"fields":[
+			 	],
+			 	"constructors":[]
+			 },
+			 {
+			 	"name": "int",
+			 	"fullName":  "int",
+			 	"nullable":  false,
+			 	"throwable":  false,
+			 	"astTypeName":  "IntegerType",
+			 	"sign": false,
+			 	"size": 64,
+			 	"fields":[
+			 	],
+			 	"constructors":[]
+			 },
+			 {
+			 	"name": "String",
+			 	"fullName":  "String",
+			 	"nullable":  true,
+			 	"throwable":  false,
+			 	"astTypeName":  "StringType",
+			 	"sign": false,
+			 	"size": 64,
+			 	"fields":[
+			 	],
+			 	"constructors":[]
+			 }
+	 ]
+}

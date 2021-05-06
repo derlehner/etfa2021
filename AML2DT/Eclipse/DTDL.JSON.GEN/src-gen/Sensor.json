@@ -1,0 +1,28 @@
+{
+	"@type": "Interface",
+	"displayName": "Sensor",
+	"@id": "dtmi:Sensor;1",
+	"contents":[
+			{
+			"@type": [
+				"Property"
+			],
+			"schema": "string",
+			"displayName": "type",
+			"@id": "dtmi:type;1",
+			"unit": "NONE",
+			"name": "type"
+			},
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "integer",
+			"displayName": "co2Value",
+			"@id": "dtmi:co2Value;1",
+			"unit": "NONE",
+			"name": "co2Value"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

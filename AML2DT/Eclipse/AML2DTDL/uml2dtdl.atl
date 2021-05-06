@@ -1,0 +1,204 @@
+module UML2DTDL;
+--@nsURI UML=http://www.eclipse.org/uml2/5.0.0/UML
+--@path DTDL=/DTML/model/dTML.ecore
+create OUT: DTDL from IN: UML, P:Profile;
+
+--- Evaluates whether the context has the given stereotype or not.
+--- taken from https://wiki.eclipse.org/ATL/User_Guide_-_The_ATL_Language#Since_ATL_3.1
+helper context UML!Element def: hasStereotype(stereotype : String) : Boolean =
+	self.getAppliedStereotypes() -> collect(st | st.name) -> includes(stereotype);
+
+helper def: element_stereotype_name : String = 'DTElement';
+helper def: element_stereotype: Profile!Stereotype = Profile!Stereotype.allInstances() -> any(s | s.name = thisModule.element_stereotype_name);
+
+-- main entry point
+rule class2interface {
+	from
+		cl: UML!Class
+	to
+		interf: DTDL!Interface ()
+	do{
+		interf.displayName <- cl.name;
+		if(cl.ownedComment.notEmpty()){
+			interf.comment <- cl.ownedComment.first().body;
+		}
+		if(cl->hasStereotype(thisModule.element_stereotype_name)){
+			interf.id <- thisModule.newDTMI(cl.getValue(thisModule.element_stereotype, 'id_scheme'), cl.getValue(thisModule.element_stereotype, 'id_path'), cl.getValue(thisModule.element_stereotype, 'id_version')); -- todo: DTMI erstellen (wie???)
+		}
+			-- the remainder of this code section is for filling the contents property of the interface
+		interf.contents <- Set{};
+		-- create Properties, Telemetries, Relationships and Components
+		for(attr in cl.ownedAttribute) {
+				if(attr.association.oclType() = UML!Association){
+					if(attr.aggregation = #composite){
+						'Composition detected'.println();
+						interf.contents <- interf.contents->including(thisModule.newComponent(attr));
+					}else{
+						'Association detected'.println();
+						interf.contents <- interf.contents->including(thisModule.newRelationship(attr));
+					}
+				}else{
+					if(attr->hasStereotype('ObservableProperty')){
+						interf.contents <- interf.contents->including(thisModule.newTelemetry(attr));
+					}else{
+						interf.contents <- interf.contents->including(thisModule.newProperty(attr));
+					}
+				}
+		}
+		-- Create Commands
+		for(op in cl.ownedOperation) {
+			interf.contents <- interf.contents->including(thisModule.newCommand(op));
+		}
+		-- Create Components
+		for(innerCl in cl.nestedClassifier){
+			interf.contents <- interf.contents->including(thisModule.newComponent(innerCl));
+		}
+	}
+}
+
+
+
+rule newDTMI(schema: String, path: String, version: Integer){
+	to dtmi: DTDL!DTMI(
+		scheme <- schema,
+		path <- path,
+		version <- version
+	)
+	do{
+		dtmi;
+	}
+}
+
+rule newTelemetry(attr: UML!Property){
+	to telem: DTDL!Telemetry(
+		displayName <- attr.name,
+		name <- attr.name		
+	)
+	do{
+		if(attr->hasStereotype(thisModule.element_stereotype_name)){
+			telem.id <- thisModule.newDTMI(attr.getValue(thisModule.element_stereotype, 'id_scheme'), attr.getValue(thisModule.element_stereotype, 'id_path'), attr.getValue(thisModule.element_stereotype, 'id_version'));
+		}
+		if(attr.ownedComment.notEmpty()){
+				telem.comment <- attr.ownedComment.first().body;
+		}
+		telem;
+	}
+}
+
+rule newProperty(attr: UML!Property){
+	to prop: DTDL!Property(
+		displayName <- attr.name,
+		name <- attr.name,
+		writable <- not attr.isReadOnly
+		
+	)
+	do{
+		if(attr->hasStereotype(thisModule.element_stereotype_name)){
+			prop.id <- thisModule.newDTMI(attr.getValue(thisModule.element_stereotype, 'id_scheme'), attr.getValue(thisModule.element_stereotype, 'id_path'), attr.getValue(thisModule.element_stereotype, 'id_version'));
+		}
+		if(attr.ownedComment.notEmpty()){
+				prop.comment <- attr.ownedComment.first().body;
+		}
+		prop;
+	}
+	
+}
+
+rule newCommand(op: UML!Operation){
+	using{
+		inputs: Sequence(UML!Parameter) = Sequence{};	
+		outputs: Sequence(UML!Parameter) = Sequence{};
+	}
+	to 
+		com: DTDL!Command(
+			displayName <- op.name,
+			name <- op.name
+		)
+	do{
+		if(op->hasStereotype(thisModule.element_stereotype_name)){
+			com.id <- thisModule.newDTMI(op.getValue(thisModule.element_stereotype, 'id_scheme'), op.getValue(thisModule.element_stereotype, 'id_path'), op.getValue(thisModule.element_stereotype, 'id_version'));
+		}
+		if(op.ownedComment.notEmpty()){
+				com.comment <- op.ownedComment.first().body;
+		}
+		for(param in op.ownedParameter) {
+			if(param.direction = #out){
+				outputs<-outputs->including(param);}
+			else{
+				inputs<-inputs->including(param);}
+			}
+		com.request <- thisModule.newCommandPayload(inputs.first());
+		com.response <- thisModule.newCommandPayload(outputs.first());
+		com;
+	}
+}
+
+rule newCommandPayload(param: UML!Parameter){
+	to 
+		payload: DTDL!CommandPayload(
+			name <- param.name,
+			displayName <- param.name
+		)
+	do{
+		if(param.type.name = 'String'){
+			'String detected'.println();
+			payload.schema = 08;
+		}
+		
+		if(param.type.name = 'Boolean'){
+			'Boolean detected'.println();
+			payload.schema = #boolean;
+		}
+		payload;
+	}
+}
+
+rule newComponent(prop: UML!Property){
+	to
+		comp: DTDL!Component(
+			displayName <- prop.name,
+			name <- prop.name,
+			schema <- thisModule.resolveTemp(prop.type, 'interf')
+		)
+	do{
+		if(prop->hasStereotype(thisModule.element_stereotype_name)){
+			comp.id <- thisModule.newDTMI(prop.getValue(thisModule.element_stereotype, 'id_scheme'), prop.getValue(thisModule.element_stereotype, 'id_path'), prop.getValue(thisModule.element_stereotype, 'id_version'));
+		}
+		if(prop.ownedComment.notEmpty()){
+				comp.comment <- prop.ownedComment.first().body;
+		}
+		comp;
+	}
+}
+
+rule newRelationship(prop: UML!Property){
+	using{
+		properties: Sequence(UML!Property) = Sequence{};
+	}
+	to
+		rel: DTDL!Relationship(
+			displayName <- prop.name,
+			name <- prop.name,
+			minMultiplicity <- prop.lowerValue.value,
+			maxMultiplicity <- prop.upperValue.value,
+			writable <- not prop.isReadOnly,
+			target <- thisModule.resolveTemp(prop.type, 'interf')
+		)
+	do{
+		if(prop->hasStereotype(thisModule.element_stereotype_name)){
+			rel.id <- thisModule.newDTMI(prop.getValue(thisModule.element_stereotype, 'id_scheme'), prop.getValue(thisModule.element_stereotype, 'id_path'), prop.getValue(thisModule.element_stereotype, 'id_version'));
+		}
+		rel.properties <- Set{};
+		for(ownedProp in prop.association.ownedEnd){
+			rel.properties <- rel.properties.including(thisModule.newProperty(ownedProp));
+		}
+		if(prop.ownedComment.notEmpty()){
+				rel.comment <- prop.ownedComment.first().body;
+		}
+		rel;
+	}
+}
+
+
+
+

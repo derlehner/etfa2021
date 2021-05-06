@@ -1,0 +1,17 @@
+{
+	"dtid": "RoomManuel",
+	"content": {
+		"$metadata": {
+			"$model": "DTML.impl.DTMIImpl@4cd1c1dc (scheme: dtmi, path: c60d856f-ccd1-4fb9-954f-bb71ab9d9831, version: 1)"
+		 }
+	}, 
+	"relationships": [
+		{
+			"id": "rel1",
+			"content": {
+				"$targetId": "Raspi123",
+				"relationshipName": "Room_AirQualityController"
+			}
+		}
+	]
+}

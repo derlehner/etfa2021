@@ -1,0 +1,15 @@
+{
+	"dtid": "Raspi123",
+	"content": {
+		"Sensor": {
+			"$metadata": {},
+		"type": ""
+		}
+		,
+		"$metadata": {
+			"$model": "DTML.impl.DTMIImpl@47f08b81 (scheme: dtmi, path: 93d44518-037b-40ea-a094-ee6586004ccf, version: 1)"
+		 }
+	}, 
+	"relationships": [
+	]
+}

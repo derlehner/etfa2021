@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DTML:Interface xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DTML="http://www.example.org/DTML" displayName="Air Quality Controller">
+  <id scheme="at:jku:se:airqualitycontroller" path="dtmi" version="1"/>
+  <contents xsi:type="DTML:Component" displayName="CO2 Sensor 1" name="co2SensorOne">
+    <schema href="Co2Sensor.dtml#/"/>
+  </contents>
+  <contents xsi:type="DTML:Component" displayName="Temperature Sensor 1" name="temperatureSensorOne">
+    <schema href="TemperatureSensor.dtml#/"/>
+  </contents>
+  <contents xsi:type="DTML:Component" displayName="LED System 1" name="ledSystemOne">
+    <schema href="LedSystem.dtml#/"/>
+  </contents>
+</DTML:Interface>

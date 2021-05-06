@@ -1,0 +1,18 @@
+{
+	"@type": "Interface",
+	"displayName": "Room",
+	"@id": "dtmi:c60d856f-ccd1-4fb9-954f-bb71ab9d9831;1",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "Room_AirQualityController",
+			"@id": "dtmi:7a271462-3a28-4cbb-9e31-6d6e4cee2ee2;1",
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "Room_AirQualityController"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

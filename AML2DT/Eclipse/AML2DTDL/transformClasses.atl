@@ -1,0 +1,242 @@
+-- @path DTDL=/DTML/model/dTML.ecore
+-- @path CAEX=/caex.caex30/model/CAEX30.ecore
+
+module transformClasses;
+create OUT : DTDL from IN : CAEX;
+
+
+unique lazy rule newInterface {
+	from cl: CAEX!SystemUnitClass
+	to
+		interf: DTDL!Interface (
+			displayName <- cl.name
+		)
+	do{
+		--'SuC to be created: '.println();
+		--cl.name.println();
+		if(cl.iD.oclType().toString() <> 'Void'){
+			if(cl.version.oclType().toString() <> 'Void'){
+				interf.id <- thisModule.newDTMI('dtmi', cl.iD, cl.version);
+			}else{
+				interf.id <- thisModule.newDTMI('dtmi', cl.iD, 1);
+			}
+		}else{
+			if(cl.version <> ''){
+				interf.id <- thisModule.newDTMI('dtmi', cl.name, cl.version);
+			}else{
+				interf.id <- thisModule.newDTMI('dtmi', cl.name, 1);
+			}
+		}
+		
+		interf.contents <- Set{};
+		
+		-- transform attributes and properties
+		for(attr in cl.attribute) {
+			if(attr.refAttributeType.toString() = 'DTDLAttributeTypeLib/Telemetry'){
+				interf.contents <- interf.contents->including(thisModule.newTelemetry(attr));
+			}else{
+				interf.contents <- interf.contents->including(thisModule.newProperty(attr));
+			}
+		}
+		
+		-- transform relationsips
+		--for(rel in cl.externalInterface){
+		--	rel.refBaseClassPath.toString();
+		--	if(rel.refBaseClassPath.toString() = 'DTDLInterfaceClassLib/Relationship'){
+		--		interf.contents <- interf.contents->including(thisModule.newRelationship(rel));
+		--	}
+		--}
+		
+		for(rel in cl.internalLink){
+			rel.oclType().toString().println();
+			interf.contents <- interf.contents->including(thisModule.newRelationship(rel));
+		}
+		
+		-- transform components
+		for(comp in cl.systemUnitClass){
+			interf.contents <- interf.contents->including(thisModule.newComponent(comp));
+		}
+		interf;
+	}
+}
+
+rule newTelemetry(attr: CAEX!Attribute){
+	to telem: DTDL!Telemetry(
+		displayName <- attr.name,
+		name <- attr.name		
+	)
+	do{
+		if(attr.iD.oclType().toString() <> 'Void'){
+			if(attr.version.oclType().toString() <> 'Void'){
+				telem.id <- thisModule.newDTMI('dtmi', attr.iD, attr.Version);
+			}else{
+				telem.id <- thisModule.newDTMI('dtmi', attr.iD, 1);
+			}
+		}else{
+			if(attr.version.oclType().toString() <> 'Void'){
+				telem.id <- thisModule.newDTMI('dtmi', attr.name, attr.Version);
+			}else{
+				telem.id <- thisModule.newDTMI('dtmi', attr.name, 1);
+			}
+		}
+		
+		if(Set{'xs:string', 'xs:ID', 'xs:normalizedString', 'xs:Name', 'xs:QName', 'xs:NCName', 'xs:token', 'xs:NMToken', 'xs:language'}->includes(attr.attributeDataType)){
+			telem.schema <- #string;
+		}else if(attr.attributeDataType = 'xs:boolean'){
+			telem.schema <- #boolean;
+		}else if(attr.attributeDataType = 'xs:date'){
+			telem.schema <- #DATE;
+		}else if(attr.attributeDataType = 'xs:dateTime'){
+			telem.schema <- #datetime;
+		}else if(attr.attributeDataType = 'xs:double'){
+			telem.schema <- #double;
+		}else if(attr.attributeDataType = 'xs:duration'){
+			telem.schema <- #duration;
+		}else if(attr.attributeDataType = 'xs:bool'){
+			telem.schema <- #float;
+		}else if(Set{'xs:unsignedInt', 'xs:int', 'xs:integer', 'xs:positiveInteger', 'xs:nonPositiveInteger', 'xs:negativeInteger'}->includes(attr.attributeDataType)){
+			telem.schema <- #integer;
+		}else if(Set{'xs:unsignedLong', 'xs:long'}->includes(attr.attributeDataType)){
+			telem.schema <- #long;
+		}
+		-- todo: map and set type
+		-- todo: map and set unit
+		telem;
+	}
+}
+
+
+rule newProperty(attr: CAEX!Attribute){
+	to prop: DTDL!Property(
+		displayName <- attr.name,
+		name <- attr.name		
+	)
+	do{
+		if(attr.iD.oclType().toString() <> 'Void'){
+			if(attr.version.oclType().toString() <> 'Void'){
+				prop.id <- thisModule.newDTMI('dtmi', attr.iD, attr.Version);
+			}else{
+				prop.id <- thisModule.newDTMI('dtmi', attr.iD, 1);
+			}
+		}else{
+			if(attr.version.oclType().toString() <> 'Void'){
+				prop.id <- thisModule.newDTMI('dtmi', attr.name, attr.Version);
+			}else{
+				prop.id <- thisModule.newDTMI('dtmi', attr.name, 1);
+			}
+		}
+		
+		-- set writable
+		if(attr.attribute->select(test|test.name='writable')->notEmpty()){
+			if(attr.attribute->select(test|test.name='writable').first().value = 'true'){
+				prop.writable = true;	
+			} 
+			if(attr.attribute->select(test|test.name='writable').first().value = 'false'){
+				prop.writable = false;	
+			}
+		}else{
+			prop.writable = false;
+		}
+		
+		
+		-- resolve schema
+		if(Set{'xs:string', 'xs:ID', 'xs:normalizedString', 'xs:Name', 'xs:QName', 'xs:NCName', 'xs:token', 'xs:NMToken', 'xs:language'}->includes(attr.attributeDataType)){
+			prop.schema <- #string;
+		}else if(attr.attributeDataType = 'xs:boolean'){
+			prop.schema <- #boolean;
+		}else if(attr.attributeDataType = 'xs:date'){
+			prop.schema <- #DATE;
+		}else if(attr.attributeDataType = 'xs:dateTime'){
+			prop.schema <- #datetime;
+		}else if(attr.attributeDataType = 'xs:double'){
+			prop.schema <- #double;
+		}else if(attr.attributeDataType = 'xs:duration'){
+			prop.schema <- #duration;
+		}else if(attr.attributeDataType = 'xs:bool'){
+			prop.schema <- #float;
+		}else if(Set{'xs:unsignedInt', 'xs:int', 'xs:integer', 'xs:positiveInteger', 'xs:nonPositiveInteger', 'xs:negativeInteger'}->includes(attr.attributeDataType)){
+			prop.schema <- #integer;
+		}else if(Set{'xs:unsignedLong', 'xs:long'}->includes(attr.attributeDataType)){
+			prop.schema <- #long;
+		}
+		-- todo: map and set type
+		-- todo: map and set unit
+		prop;
+	}
+}
+
+unique lazy rule newRelationship{
+	from attr: CAEX!InternalLink
+	using{
+		source: CAEX!InterfaceClass = attr.partnerSideA;
+		target: CAEX!InterfaceClass = attr.partnerSideB;
+		cardinality: CAEX!Attribute = source.attribute->select(test|test.name='Cardinality').first();
+	}
+	to rel: DTDL!Relationship(
+		displayName <- attr.name,
+		name <- source.name,
+		minMultiplicity <- cardinality.attribute->select(test|test.name='MinOccur').first().value.toInteger(),
+		maxMultiplicity <- cardinality.attribute->select(test|test.name='MaxOccur').first().value.toInteger(),
+		target <- thisModule.newInterface(target.refImmediateComposite())
+	)
+	do{
+		if(source.iD.oclType().toString() <> 'Void'){
+			if(source.version.oclType().toString() <> 'Void'){
+				rel.id <- thisModule.newDTMI('dtmi', source.iD, source.version);
+			}else{
+				rel.id <- thisModule.newDTMI('dtmi', source.iD, 1);
+			}
+		}else{
+			if(source.version.oclType().toString() <> 'Void'){
+				rel.id <- thisModule.newDTMI('dtmi', source.name, source.version);
+			}else{
+				rel.id <- thisModule.newDTMI('dtmi', source.name, 1);
+			}
+		}
+		if(source.attribute->select(test|test.name='writable').first().value = 'true'){
+			rel.writable = true;	
+		}
+		if(source.attribute->select(test|test.name='writable').first().value = 'false'){
+			rel.writable = false;	
+		}
+		rel;
+	}
+}
+
+unique lazy rule newComponent{
+	from ie: CAEX!SystemUnitClass
+	to comp: DTDL!Component(
+		displayName <- ie.name,
+		name <- ie.name,
+		schema <- thisModule.newInterface(ie)
+	)
+	do{
+		if(ie.iD.oclType().toString() <> 'Void'){
+			if(ie.version.oclType().toString() <> 'Void'){
+				comp.id <- thisModule.newDTMI('dtmi', ie.iD, ie.Version);
+			}else{
+				comp.id <- thisModule.newDTMI('dtmi', ie.iD, 1);
+			}
+		}else{
+			if(ie.version.oclType().toString() <> 'Void'){
+				comp.id <- thisModule.newDTMI('dtmi', ie.name, ie.Version);
+			}else{
+				comp.id <- thisModule.newDTMI('dtmi', ie.name, 1);
+			}
+		}
+		comp.schema.toString().println();
+		comp;
+	}
+}
+
+
+rule newDTMI(schema: String, path: String, version: Integer){
+	to dtmi: DTDL!DTMI(
+		scheme <- schema,
+		path <- path,
+		version <- version
+	)
+	do{
+		dtmi;
+	}
+}

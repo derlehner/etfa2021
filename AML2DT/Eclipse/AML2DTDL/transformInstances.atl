@@ -1,0 +1,98 @@
+-- @path DTDL=/DTML/model/dTML.ecore
+-- @path CAEX=/caex.caex30/model/CAEX30.ecore
+
+module transformInstances;
+create OUT : DTDL from IN : CAEX;
+
+helper def : getRelationship(id: String) : DTDL!Relationship=
+	DTDL!Relationship.allInstances() -> select(r|r.id.path=id)->first();
+
+unique lazy rule newTwin {
+	from ie: CAEX!InternalElement
+	to
+		dt: DTDL!DigitalTwin (
+			name <- ie.name,
+			type <- thisModule.newInterface(ie.baseSystemUnit)
+		)
+	do{
+		dt.contents <- Set{};
+		'Twin to be created:'.println();
+		dt.name.println();
+		'type:'.println();
+		dt.type.toString().println();
+		for(attr in ie.attribute) {
+			if(attr.refAttributeType.toString() = 'DTDLAttributeTypeLib/Telemetry'){
+				dt.contents <- dt.contents->including(thisModule.newTelemetryInstance(attr));
+			}else{
+				dt.contents <- dt.contents->including(thisModule.newPropertyInstance(attr));
+			}
+		}
+		
+		for(rel in ie.internalLink){
+				dt.contents <- dt.contents->including(thisModule.newRelationshipInstance(rel));
+		}
+		
+		for(comp in ie.internalElement){
+			dt.contents <- dt.contents->including(thisModule.newComponentInstance(comp));
+		}
+		dt;
+	}
+}
+
+rule newTelemetryInstance(attr: CAEX!Attribute){
+	to telem: DTDL!Telemetry(
+			name <- attr.name
+	)
+	do{
+		telem;
+	}
+}
+
+rule newPropertyInstance(attr: CAEX!Attribute){
+	to prop: DTDL!Property(
+		name <- attr.name
+	)
+	do{
+		prop;
+	}
+}
+
+rule newComponentInstance(ie: CAEX!InternalElement){
+	to comp: DTDL!ComponentInstance(
+		--name <- attr.name,
+		type <- thisModule.newComponent(ie.baseSystemUnit)
+		
+	)
+	do{
+		comp.contents <- Set{};
+		'Component to be created:'.println();
+		--comp.name.println();
+		for(attr in ie.attribute) {
+			if(attr.refAttributeType.toString() = 'DTDLAttributeTypeLib/Telemetry'){
+				comp.contents <- comp.contents->including(thisModule.newTelemetryInstance(attr));
+			}else{
+				comp.contents <- comp.contents->including(thisModule.newPropertyInstance(attr));
+			}
+		}
+		comp;
+	}
+}
+
+rule newRelationshipInstance(attr: CAEX!InternalLink){
+	using{
+		source: CAEX!InterfaceClass = attr.partnerSideA;
+		target: CAEX!InterfaceClass = attr.partnerSideB;
+	}
+	to rel: DTDL!RelationshipInstance(
+		name <- source.name,
+		target <- thisModule.newTwin(target.refImmediateComposite())
+	)
+	do{
+		if(source.baseClass.iD.oclType().toString() <> 'Void'){
+			rel.type <- thisModule.getRelationship(source.baseClass.iD);
+		}else{
+			rel.type <- thisModule.getRelationship(source.baseClass.name);
+		}
+		rel;
+	}
+}

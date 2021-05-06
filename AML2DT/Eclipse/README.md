@@ -1,0 +1,7 @@
+In this folder, the Eclipse projects that are implemented as part of the AML2DT framework are available.
+To use them, download the [Eclipse Modeling Tools](https://www.eclipse.org/downloads/packages/release/juno/sr1/eclipse-modeling-tools), create a new workspace, and import the folders as existing projects. Additionally, the [CAEX Workbench](https://github.com/amlModeling/caex-workbench) is required to be imported in the same workspace in order to have an [EMF implementation of the CAEX 3.0 metamodel](https://github.com/amlModeling/caex-workbench/tree/master/plugins/caex30).
+
+- The folder [AML2DTDL](AML2DTDL) contains the ATL Transformation
+- The folder [DigitalTwinMetamodel](DigitalTwinMetamodel) contains the abstracted metamodel (DT-M)
+- The Folder [DTML](./DTML) contains the EMF implementation of the proprietary metamodel used by the Microsoft Azure Digital Twin Platform (The folders [DTML.edit](DTML.edit) and [DTML.editor](./DTML.editor) are required to provide editor support for this metamodel).
+- The Folder [DTDL.JSON.GEN](DTDL.JSON.GEN) contains the xtend code generation project that derives the json files from DTML models. These json-files are used as input for the simulators in the evaluation, and can also be used to manually set up DTs in the Azure Digital Twins service.

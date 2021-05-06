@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="digitalTwinMetamodel" nsURI="http://www.example.org/digitalTwinMetamodel"
+    nsPrefix="digitalTwinMetamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="TwinType" eSuperTypes="#//VersionableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//TwinType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
+        eType="#//Relationship" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superTypes" eType="#//TwinType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="telemetries" upperBound="-1"
+        eType="#//Telemetry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DigitalTwin">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//DigitalTwin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
+        eType="#//RelationshipInstance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superTwins" eType="#//DigitalTwin"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="telemetries" upperBound="-1"
+        eType="#//TelemetryInstance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//PropertyInstance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TwinType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//VersionableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TwinType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccur" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccur" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationshipInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//DigitalTwin"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DigitalTwinEnvironment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="twins" upperBound="-1"
+        eType="#//DigitalTwin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
+        eType="#//TwinType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Telemetry" eSuperTypes="#//VersionableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//VersionableElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TelemetryInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Telemetry"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VersionableElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+</ecore:EPackage>

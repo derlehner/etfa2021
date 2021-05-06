@@ -1,0 +1,15 @@
+{
+	"@type": "Interface",
+	"displayName": "AirQualityController",
+	"@id": "dtmi:93d44518-037b-40ea-a094-ee6586004ccf;1",
+	"contents":[
+			{
+			"@type": "Component",
+			"name": "Sensor",
+			"displayName": "Sensor",
+			"@id": "dtmi:Sensor;1",
+			"schema": "dtmi:Sensor;0"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

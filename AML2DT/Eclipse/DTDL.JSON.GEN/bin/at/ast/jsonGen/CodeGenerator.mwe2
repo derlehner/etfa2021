@@ -1,0 +1,36 @@
+module generator
+
+import org.eclipse.emf.mwe.utils.*
+
+var targetDir = "src-gen"
+var modelPath = "models"
+var slotID = "models-slot"
+
+Workflow {
+
+	bean = StandaloneSetup {
+		registerGeneratedEPackage = "DTML.DTMLPackage"
+	}
+
+	component = DirectoryCleaner {
+		directory = targetDir
+	}
+
+	component = at.ast.jsonGen.SimulatorGeneratorSupport {}
+
+	component = org.eclipse.xtext.mwe.Reader {
+		path = modelPath
+		register = at.ast.jsonGen.SimulatorGeneratorSetup {}
+		loadResource = {
+			slot = slotID
+		}
+	}
+
+	component = org.eclipse.xtext.generator.GeneratorComponent {
+		register = at.ast.jsonGen.SimulatorGeneratorSetup {}
+		slot = slotID
+		outlet = {
+			path = targetDir
+		}
+	}
+}
