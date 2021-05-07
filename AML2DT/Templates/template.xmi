@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<caex:DocumentRoot
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:caex="http://www.dke.de/CAEX/">
+  <cAEXFile
+      fileName="airquality.aml"
+      schemaVersion="3.0">
+    <superiorStandardVersion>AutomationML 2.10</superiorStandardVersion>
+    <sourceDocumentInformation
+        lastWritingDateTime="2021-03-11T08:13:21.5275116+01:00"
+        originID="916578CA-FE0D-474E-A4FC-9E1719892369"
+        originName="AutomationML Editor"
+        originProjectID="unspecified"
+        originProjectTitle="unspecified"
+        originRelease="5.3.3.0"
+        originVendor="AutomationML e.V."
+        originVendorURL="www.AutomationML.org"
+        originVersion="5.3.3.0"/>
+    <interfaceClassLib
+        changeMode="state"
+        name="AutomationMLInterfaceClassLib">
+      <description
+          value="Standard Automation Markup Language Interface Class Library - Part 1 Content "/>
+      <version
+          value="2.10"/>
+      <copyright
+          value="AutomationML e.V."/>
+    </interfaceClassLib>
+    <interfaceClassLib
+        name="DTDLInterfaceClassLib">
+      <version
+          value="0"/>
+      <interfaceClass
+          name="Relationship">
+        <attribute
+            name="Cardinality">
+          <attribute
+              name="MinOccur"
+              attributeDataType="xs:unsignedInt"/>
+          <attribute
+              name="MaxOccur"
+              attributeDataType="xs:unsignedInt"/>
+        </attribute>
+        <attribute
+            name="writable"
+            attributeDataType="xs:boolean"
+            refAttributeType=""/>
+      </interfaceClass>
+    </interfaceClassLib>
+    <attributeTypeLib
+        changeMode="state"
+        name="AutomationMLBaseAttributeTypeLib">
+      <description
+          value="Standard Automation Markup Language Attribute Type Library"/>
+      <version
+          value="2.10.0"/>
+      <copyright
+          value="AutomationML e.V."/>
+    </attributeTypeLib>
+    <attributeTypeLib
+        name="DTDLAttributeTypeLib">
+      <attributeType
+          name="Loggable"/>
+      <attributeType
+          name="Constant"/>
+    </attributeTypeLib>
+  </cAEXFile>
+</caex:DocumentRoot>
