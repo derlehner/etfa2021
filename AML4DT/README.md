@@ -1,7 +1,7 @@
-In this folder, the prototypical implementation of the AML2DT framework is described, and the implemented artifacts are presented.
+In this folder, the prototypical implementation of the AML4DT framework is described, and the implemented artifacts are presented.
 
 # AML Template
-To add annotations to existing AML models that are required to make them suitable for the AML2DT framework as an input, templates that contain the required extensions to the CAEX metamodel are provided in Folder [Templates](./Templates). These templates can also be used to create new models using these annotations.
+To add annotations to existing AML models that are required to make them suitable for the AML4DT framework as an input, templates that contain the required extensions to the CAEX metamodel are provided in Folder [Templates](./Templates). These templates can also be used to create new models using these annotations.
 - The file template.xmi can be directly used in the [CAEX-Workbench](https://github.com/amlModeling/caex-workbench) (tested with version from 7. Mai 2021).
 - The file template.aml can be used in the [AutomationML Editor](https://www.automationml.org/o.red.c/dateien.html?cat=1) (tested with version 5.3.3)
 To create or adapt models based on this template, just open the respective file in the corresponding editor.

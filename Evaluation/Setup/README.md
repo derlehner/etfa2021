@@ -1,11 +1,8 @@
-In this folder, the setup of Demonstration Case 1 is compared between the AML2DT setting and the traditional setting.
-For calculating
-the effort of the setup procedure, the overall process can be divided
-into two main parts. First, the types had to be added. Based on these
-type descriptions, specific instances were created.
+In this folder, the setup of Demonstration Case 1 is compared between the AML4DT setting and the traditional setting.
+For calculating the effort of the setup procedure, the overall process can be divided into two main parts. First, the types had to be added. Based on these type descriptions, specific instances were created.
 
-# AML2DT Setting
-In the AML2DT setting, the following steps were therefore required. 
+# AML4DT Setting
+In the AML4DT setting, the following steps were therefore required. 
 To setup the types, two SystemUnitClasses (Room and AirQualityController) as well as one inner SystemUnitClass (Sensor) had to be added. This aggregated to 6 changes in the model for adding and renaming those SystemUnitClasses. To establish the relationship between Room and AirQualityController, 2 ExternalInterfaces and an InternalLink between those ExternalInterfaces had to be added (3 changes). Additonally, the ExternalInterfaces should be renamed, and an InterfaceClassLib relationship had to be added to one ExternalInterface in order to define the multiplicity and the writable-property of the relationship (2 changes). To create the type and the co2value properties for Sensor, 7 more model changes were required to add the respective attributes to the SystemUnitClass, add the *Telemetry*-annotation to the co2value property, and define the data type for each property. To create instances for those types, the respective InternalElements can be created by dragging the SystemUnitClasses to the respective InstanceHierarchy. Thereby, InternalElements, inner InternalElements, Attributes and ExternalInterfaces were automatically created using the same names and configurations that the base SystemUnitClass. This means that the name of each Room and Raspberry still had to be adapted. Additionally, the InternalLinks between the ExternalInterfaces of Rooms and Controllers had to be added, and the value of the type property was set for each Sensor. For our demonstration case, this aggregated to 16 changes in the AML model. The created AML model is available in the folder of [Demonstration Case 1](/Evaluation/Demonstration Case 1).
 
 # Traditional Setting

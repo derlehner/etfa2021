@@ -1,6 +1,6 @@
 ﻿<CAEXFile xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="cars.aml" SchemaVersion="3.0" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-  <SourceDocumentInformation LastWritingDateTime="2021-05-07T13:08:32.4344333+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.3.3.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="5.3.3.0" />
+  <SourceDocumentInformation LastWritingDateTime="2021-05-07T15:53:08.3581097+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.3.3.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="5.3.3.0" />
   <InstanceHierarchy Name="CarTwins">
     <Version>0</Version>
     <InternalElement Name="Car1" ID="4bebc56d-098a-4d2b-bfa0-2ece2259a9c2" RefBaseSystemUnitPath="SystemUnitClassLib/Car">
@@ -180,7 +180,13 @@
     <SystemUnitClass ID="c60d856f-ccd1-4fb9-954f-bb71ab9d9831" Name="Car">
       <Attribute Name="name" AttributeDataType="xs:string" />
       <Attribute Name="ipAddress" AttributeDataType="xs:string" />
-      <ExternalInterface Name="car_to_adapt" ID="8c566885-dda9-4da5-9429-f3f7111acfef" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+      <ExternalInterface Name="car_to_adapt" ID="189ae0a3-3d97-4860-a3aa-73f93f3c2668" RefBaseClassPath="DTDLInterfaceClassLib/Relationship">
+        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
+        </Attribute>
+        <Attribute AttributeDataType="xs:boolean" Name="writable" />
+      </ExternalInterface>
       <ExternalInterface Name="external_car_interface" ID="ffcad312-60cf-488f-9891-17a255223375" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
       <SystemUnitClass ID="93d44518-037b-40ea-a094-ee6586004ccf" Name="DistanceSensors">
         <Attribute Name="front" AttributeDataType="xs:double" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
