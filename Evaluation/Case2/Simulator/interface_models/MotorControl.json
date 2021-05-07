@@ -1,0 +1,37 @@
+{
+	"@type": "Interface",
+	"displayName": "MotorControl",
+	"@id": "dtmi:com:example:MotorControl;1",
+	"contents":[
+		{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "double",
+			"displayName": "currentSpeed",
+			"@id": "dtmi:org:example:MotorControl:currentSpeed;1",
+			"name": "currentSpeed"
+		},
+		{
+			"@type": [
+				"Property"
+			],
+			"schema": "integer",
+			"displayName": "desiredSpeed",
+			"@id": "dtmi:org:example:MotorControl:desiredSpeed;1",
+			"name": "desiredSpeed",
+			"writable": true
+		},
+		{
+			"@type": [
+				"Property"
+			],
+			"schema": "string",
+			"displayName": "pin",
+			"@id": "dtmi:org:example:MotorControl:pin;2",
+			"name": "pin",
+			"writable": false
+		}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

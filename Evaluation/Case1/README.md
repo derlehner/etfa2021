@@ -35,4 +35,4 @@ To use the code in the traditional mode without automation support, run file mai
 To use the code in the AML2DT-supported mode, run file main_automated.py. Before starting this file, the json-files
 Additionally, the folder xx contains a simulation model to setup the raspberry in the azure platform.
 ## required adaptations
-In both the simulation and the raspberry code, the base url and bearer token must be adapted to allow interactions with the REST apis of azure services.
+In both the simulation and the raspberry code, the base url and bearer token must be adapted to allow interactions with the REST apis of azure services in the file digita_twin_api.py.

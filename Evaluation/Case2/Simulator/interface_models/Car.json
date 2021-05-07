@@ -1,0 +1,39 @@
+{
+	"@type": "Interface",
+	"displayName": "Car",
+	"@id": "dtmi:org:example:Car;1",
+	"contents":[
+			{
+			"@type": ["Component"],
+			"name": "DistanceSensors",
+			"displayName": "DistanceSensors",
+			"@id": "dtmi:org:example:Car:DistanceSensors;1",
+			"schema": "dtmi:org:example:DistanceSensors;1"
+			},
+			{
+				"@type": ["Component"],
+				"name": "MotorControl",
+				"displayName": "MotorControl",
+				"@id": "dtmi:org:example:Car:MotorControl;1",
+				"schema": "dtmi:org:example:MotorControl;1"
+			},
+			{
+				"@type": ["Component"],
+				"name": "ServoControl",
+				"displayName": "ServoControl",
+				"@id": "dtmi:org:example:Car:ServoControl;1",
+				"schema": "dtmi:org:example:ServoControl;1"
+			},
+			{
+				"@type": ["Relationship"],
+				"displayName": "carToAdapt",
+				"@id": "dtmi:org:example:Car:carToAdapt;1",
+				"target": "dtmi:org:example:Car;1",
+				"minMultiplicity": 0,
+				"maxMultiplicity": 1,
+				"writable": true,
+				"name": "carToAdapt"
+				}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

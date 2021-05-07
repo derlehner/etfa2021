@@ -1,72 +1,58 @@
-﻿<CAEXFile xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="cars.aml" SchemaVersion="3.0" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+﻿<CAEXFile xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="ec4.aml" SchemaVersion="3.0" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-  <SourceDocumentInformation LastWritingDateTime="2021-05-07T10:11:24.5007678+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.3.3.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="5.3.3.0" />
-  <InstanceHierarchy Name="CarTwins">
+  <SourceDocumentInformation LastWritingDateTime="2021-05-07T14:47:33.6461886+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.3.3.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="5.3.3.0" />
+  <InstanceHierarchy Name="AirQualityTwins">
     <Version>0</Version>
-    <InternalElement Name="Car1" ID="4bebc56d-098a-4d2b-bfa0-2ece2259a9c2" RefBaseSystemUnitPath="SystemUnitClassLib/Car">
-      <Attribute Name="name" AttributeDataType="xs:string" />
-      <Attribute Name="ipAddress" AttributeDataType="xs:string" />
-      <ExternalInterface Name="car_to_adapt" ID="11e36d40-c2a8-42ff-b39a-abe78a09efbe" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
-      <InternalElement Name="DistanceSensors" ID="5e684658-0d2a-433c-a464-b5bcd581b392" RefBaseSystemUnitPath="SystemUnitClassLib/Car/DistanceSensors">
-        <Attribute Name="front" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="rear" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="left" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="right" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-      </InternalElement>
-      <InternalElement Name="MotorControl" ID="77c3c3f1-8fe4-41ea-b43e-649bf32612b9" RefBaseSystemUnitPath="SystemUnitClassLib/Car/MotorControl">
-        <Attribute Name="currentSpeed" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="desiredSpeed" AttributeDataType="xs:int" />
-        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable">
-            <DefaultValue>false</DefaultValue>
-            <Value>false</Value>
-          </Attribute>
+    <InternalElement ID="86fc7f38-0639-47fe-9b76-d253b9dc226e" Name="Room101" RefBaseSystemUnitPath="SystemUnitClassLib/Room">
+      <ExternalInterface ID="b0cfa3d0-4fef-4a68-bac7-dce256dbcf47" Name="AirQualityController" RefBaseClassPath="DTDLInterfaceClassLib/Relationship">
+        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
         </Attribute>
-      </InternalElement>
-      <InternalElement Name="ServoControl" ID="892ee38d-6b77-4c50-87f6-5f9f6b1f3463" RefBaseSystemUnitPath="SystemUnitClassLib/Car/ServoControl">
-        <Attribute Name="currentPos" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable">
-            <DefaultValue>false</DefaultValue>
-            <Value>false</Value>
-          </Attribute>
-        </Attribute>
-        <Attribute Name="desiredPos" AttributeDataType="xs:string" />
-      </InternalElement>
-      <InternalLink RefPartnerSideA="11e36d40-c2a8-42ff-b39a-abe78a09efbe" RefPartnerSideB="ae5935c2-a707-4f23-a2cb-90b31b33c4eb" Name="InternalLink" />
-    </InternalElement>
-    <InternalElement Name="Car2" ID="8ca4f785-73ec-4c73-b759-b32b43c9ecca" RefBaseSystemUnitPath="SystemUnitClassLib/Car">
-      <Attribute Name="name" AttributeDataType="xs:string" />
-      <Attribute Name="ipAddress" AttributeDataType="xs:string" />
-      <ExternalInterface Name="external_car_interface" ID="ae5935c2-a707-4f23-a2cb-90b31b33c4eb" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
-        <ExternalInterface Name="car_to_adapt" ID="426f429e-da88-43cf-a5c4-8b5944cc2866" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+        <Attribute AttributeDataType="xs:boolean" Name="writable" />
       </ExternalInterface>
-      <InternalElement Name="DistanceSensors" ID="2d314fc3-7de0-4945-9d6c-bda6ee5c1449" RefBaseSystemUnitPath="SystemUnitClassLib/Car/DistanceSensors">
-        <Attribute Name="front" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="rear" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="left" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="right" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+      <InternalLink Name="InternalLink" RefPartnerSideA="b0cfa3d0-4fef-4a68-bac7-dce256dbcf47" RefPartnerSideB="59363151-4ea1-47d0-a015-833191369894" />
+    </InternalElement>
+    <InternalElement ID="1073bca7-e584-44d2-99de-10bd8f8543f7" Name="Raspberry2" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController">
+      <ExternalInterface ID="59363151-4ea1-47d0-a015-833191369894" Name="room" />
+      <InternalElement Name="AirQualitySensor" ID="d2231393-9164-49af-8e31-280d4927193f" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController/CO2Sensor">
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
+        <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
       </InternalElement>
-      <InternalElement Name="MotorControl" ID="f860b2f2-8515-4f32-a1bd-af1584abf51b" RefBaseSystemUnitPath="SystemUnitClassLib/Car/MotorControl">
-        <Attribute Name="currentSpeed" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="desiredSpeed" AttributeDataType="xs:int" />
-        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable">
-            <DefaultValue>false</DefaultValue>
-            <Value>false</Value>
-          </Attribute>
+    </InternalElement>
+    <InternalElement Name="Room102" ID="feafd7cd-4d6e-4222-84a8-5a5117f6c324" RefBaseSystemUnitPath="SystemUnitClassLib/Room">
+      <ExternalInterface ID="cbfe0f9a-50cd-49fe-9edc-30b3c547a2f7" Name="AirQualityController" RefBaseClassPath="DTDLInterfaceClassLib/Relationship">
+        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
         </Attribute>
+        <Attribute AttributeDataType="xs:boolean" Name="writable" />
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="cbfe0f9a-50cd-49fe-9edc-30b3c547a2f7" RefPartnerSideB="74ae10b8-21c7-4a80-8b17-6ba6b7ec1a81" Name="Link" />
+    </InternalElement>
+    <InternalElement Name="Raspberry3" ID="0714f924-8f80-4085-aec4-70661266d108" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController">
+      <ExternalInterface ID="74ae10b8-21c7-4a80-8b17-6ba6b7ec1a81" Name="interface_to_room" />
+      <InternalElement Name="AirQualitySensor" ID="5e3b4914-bb7d-469c-843d-e2f55a1cb755" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController/CO2Sensor">
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
+        <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
       </InternalElement>
-      <InternalElement Name="ServoControl" ID="969c29ad-a620-4b3d-ab79-06173d72fdf7" RefBaseSystemUnitPath="SystemUnitClassLib/Car/ServoControl">
-        <Attribute Name="currentPos" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable">
-            <DefaultValue>false</DefaultValue>
-            <Value>false</Value>
-          </Attribute>
+    </InternalElement>
+    <InternalElement Name="RPi4" ID="80a0751e-6cbb-4c51-9d37-2ce116d170d3" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController">
+      <ExternalInterface ID="18ccee83-a506-4907-9e03-ba88157f1aeb" Name="interface_to_room" />
+      <InternalElement Name="CO2Sensor" ID="4852677e-769a-4636-acd4-290a3125691d" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController/CO2Sensor">
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
+        <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+      </InternalElement>
+    </InternalElement>
+    <InternalElement Name="Room201" ID="48ce30d6-0fee-4809-86de-49c0a02d2c06" RefBaseSystemUnitPath="SystemUnitClassLib/Room">
+      <ExternalInterface ID="3ea1836e-9e1d-4d0c-b8db-6a12205a5ca8" Name="AirQualityController" RefBaseClassPath="DTDLInterfaceClassLib/Relationship">
+        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
         </Attribute>
-        <Attribute Name="desiredPos" AttributeDataType="xs:string" />
-      </InternalElement>
+        <Attribute AttributeDataType="xs:boolean" Name="writable" />
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="3ea1836e-9e1d-4d0c-b8db-6a12205a5ca8" RefPartnerSideB="18ccee83-a506-4907-9e03-ba88157f1aeb" Name="Link" />
     </InternalElement>
   </InstanceHierarchy>
   <InterfaceClassLib ChangeMode="state" Name="AutomationMLInterfaceClassLib">
@@ -165,36 +151,21 @@
   </RoleClassLib>
   <SystemUnitClassLib Name="SystemUnitClassLib">
     <Version>0</Version>
-    <SystemUnitClass ID="c60d856f-ccd1-4fb9-954f-bb71ab9d9831" Name="Car">
-      <Attribute Name="name" AttributeDataType="xs:string" />
-      <Attribute Name="ipAddress" AttributeDataType="xs:string" />
-      <ExternalInterface Name="car_to_adapt" ID="8c566885-dda9-4da5-9429-f3f7111acfef" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
-      <ExternalInterface Name="external_car_interface" ID="ffcad312-60cf-488f-9891-17a255223375" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
-      <SystemUnitClass ID="93d44518-037b-40ea-a094-ee6586004ccf" Name="DistanceSensors">
-        <Attribute Name="front" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="rear" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="left" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="right" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-      </SystemUnitClass>
-      <SystemUnitClass Name="MotorControl" ID="ec2b9089-0524-4fe3-b628-0fecaf63a743">
-        <Attribute Name="currentSpeed" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="desiredSpeed" AttributeDataType="xs:int" />
-        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable">
-            <DefaultValue>false</DefaultValue>
-            <Value>false</Value>
-          </Attribute>
+    <SystemUnitClass ID="c60d856f-ccd1-4fb9-954f-bb71ab9d9831" Name="Room">
+      <ExternalInterface ID="7a271462-3a28-4cbb-9e31-6d6e4cee2ee2" Name="AirQualityController" RefBaseClassPath="DTDLInterfaceClassLib/Relationship">
+        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
         </Attribute>
-      </SystemUnitClass>
-      <SystemUnitClass Name="ServoControl" ID="32749a34-a59b-4399-bd55-12ec7a34a96a">
-        <Attribute Name="currentPos" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
-        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable">
-            <DefaultValue>false</DefaultValue>
-            <Value>false</Value>
-          </Attribute>
-        </Attribute>
-        <Attribute Name="desiredPos" AttributeDataType="xs:string" />
+        <Attribute AttributeDataType="xs:boolean" Name="writable" />
+      </ExternalInterface>
+    </SystemUnitClass>
+    <SystemUnitClass ID="93d44518-037b-40ea-a094-ee6586004ccf" Name="AirQualityController">
+      <ExternalInterface ID="492fde27-a599-4999-80d0-cc08b8d6b894" Name="interface_to_room" />
+      <SystemUnitClass ID="cb0b80c4-6dd6-459e-9bcb-ed26014f8b27" Name="CO2Sensor">
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
+        <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <SupportedRoleClass RefRoleClassPath="" />
       </SystemUnitClass>
     </SystemUnitClass>
   </SystemUnitClassLib>

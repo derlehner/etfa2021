@@ -1,0 +1,37 @@
+{
+	"@type": "Interface",
+	"displayName": "ServoControl",
+	"@id": "dtmi:com:example:ServoControl;1",
+	"contents":[
+		{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "double",
+			"displayName": "currentPos",
+			"@id": "dtmi:org:example:ServoControl:currentPos;1",
+			"name": "currentPos"
+		},
+		{
+			"@type": [
+				"Property"
+			],
+			"schema": "integer",
+			"displayName": "desiredPos",
+			"@id": "dtmi:org:example:ServoControl:desiredPos;1",
+			"name": "desiredPos",
+			"writable": true
+		},
+		{
+			"@type": [
+				"Property"
+			],
+			"schema": "string",
+			"displayName": "pin",
+			"@id": "dtmi:org:example:ServoControl:pin;1",
+			"name": "pin",
+			"writable": false
+		}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

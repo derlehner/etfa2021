@@ -1,0 +1,44 @@
+{
+	"@type": "Interface",
+	"displayName": "DistanceSensors",
+	"@id": "dtmi:org:example:DistanceSensors;1",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "double",
+			"displayName": "left",
+			"@id": "dtmi:org:example:DistanceSensors:left;1",
+			"name": "left"
+			},
+			{
+				"@type": [
+					"Telemetry"
+				],
+				"schema": "double",
+				"displayName": "right",
+				"@id": "dtmi:org:example:DistanceSensors:right;1",
+				"name": "right"
+			},
+			{
+				"@type": [
+					"Telemetry"
+				],
+				"schema": "double",
+				"displayName": "front",
+				"@id": "dtmi:org:example:DistanceSensors:front;1",
+				"name": "front"
+			},
+			{
+				"@type": [
+					"Telemetry"
+				],
+				"schema": "double",
+				"displayName": "rear",
+				"@id": "dtmi:org:example:DistanceSensors:rear;1",
+				"name": "rear"
+			}			
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

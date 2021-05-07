@@ -1,0 +1,37 @@
+{
+    "dtid": "Car1",
+    "content": {
+        "$metadata": {
+            "$model": "dtmi:org:example:Car;1"
+        },
+        "DistanceSensors": {
+            
+            "$metadata": {
+                "$model": "dtmi:org:example:DistanceSensors;1"
+            } 
+        },
+        "MotorControl": {
+            "$metadata": {
+                "$model": "dtmi:org:example:MotorControl;1"
+            },
+            "desiredSpeed": 0,
+            "pin": "1"
+        },
+        "ServoControl": {
+            "$metadata": {
+                "$model": "dtmi:org:example:ServoControl;1"
+            },
+            "desiredPos": 0,
+            "pin": "2"
+        }
+    },
+    "relationships":[
+        {
+            "id": "rel1",
+            "content":{
+                "$targetId": "Car2",
+                "$relationshipName": "carToAdapt"
+            }
+        }
+    ]
+}

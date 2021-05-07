@@ -1,0 +1,276 @@
+﻿<CAEXFile xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="cars.aml" SchemaVersion="3.0" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation LastWritingDateTime="2021-05-07T13:08:32.4344333+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.3.3.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="5.3.3.0" />
+  <InstanceHierarchy Name="CarTwins">
+    <Version>0</Version>
+    <InternalElement Name="Car1" ID="4bebc56d-098a-4d2b-bfa0-2ece2259a9c2" RefBaseSystemUnitPath="SystemUnitClassLib/Car">
+      <Attribute Name="name" AttributeDataType="xs:string" />
+      <Attribute Name="ipAddress" AttributeDataType="xs:string" />
+      <ExternalInterface Name="car_to_adapt" ID="11e36d40-c2a8-42ff-b39a-abe78a09efbe" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+      <InternalElement Name="DistanceSensors" ID="5e684658-0d2a-433c-a464-b5bcd581b392" RefBaseSystemUnitPath="SystemUnitClassLib/Car/DistanceSensors">
+        <Attribute Name="front" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="rear" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="left" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="right" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+      </InternalElement>
+      <InternalElement Name="MotorControl" ID="77c3c3f1-8fe4-41ea-b43e-649bf32612b9" RefBaseSystemUnitPath="SystemUnitClassLib/Car/MotorControl">
+        <Attribute Name="currentSpeed" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="desiredSpeed" AttributeDataType="xs:int">
+          <Value>0</Value>
+        </Attribute>
+        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
+          <Value>1</Value>
+          <Attribute AttributeDataType="xs:boolean" Name="writable">
+            <DefaultValue>false</DefaultValue>
+            <Value>false</Value>
+          </Attribute>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="ServoControl" ID="892ee38d-6b77-4c50-87f6-5f9f6b1f3463" RefBaseSystemUnitPath="SystemUnitClassLib/Car/ServoControl">
+        <Attribute Name="currentPos" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
+          <Value>2</Value>
+          <Attribute AttributeDataType="xs:boolean" Name="writable">
+            <DefaultValue>false</DefaultValue>
+            <Value>false</Value>
+          </Attribute>
+        </Attribute>
+        <Attribute Name="desiredPos" AttributeDataType="xs:string">
+          <Value>0</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalLink RefPartnerSideA="11e36d40-c2a8-42ff-b39a-abe78a09efbe" RefPartnerSideB="ae5935c2-a707-4f23-a2cb-90b31b33c4eb" Name="InternalLink" />
+    </InternalElement>
+    <InternalElement Name="Car2" ID="8ca4f785-73ec-4c73-b759-b32b43c9ecca" RefBaseSystemUnitPath="SystemUnitClassLib/Car">
+      <Attribute Name="name" AttributeDataType="xs:string" />
+      <Attribute Name="ipAddress" AttributeDataType="xs:string" />
+      <ExternalInterface Name="external_car_interface" ID="ae5935c2-a707-4f23-a2cb-90b31b33c4eb" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <ExternalInterface Name="car_to_adapt" ID="426f429e-da88-43cf-a5c4-8b5944cc2866" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+      </ExternalInterface>
+      <InternalElement Name="DistanceSensors" ID="2d314fc3-7de0-4945-9d6c-bda6ee5c1449" RefBaseSystemUnitPath="SystemUnitClassLib/Car/DistanceSensors">
+        <Attribute Name="front" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="rear" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="left" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="right" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+      </InternalElement>
+      <InternalElement Name="MotorControl" ID="f860b2f2-8515-4f32-a1bd-af1584abf51b" RefBaseSystemUnitPath="SystemUnitClassLib/Car/MotorControl">
+        <Attribute Name="currentSpeed" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="desiredSpeed" AttributeDataType="xs:int">
+          <Value>0</Value>
+        </Attribute>
+        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
+          <Value>1</Value>
+          <Attribute AttributeDataType="xs:boolean" Name="writable">
+            <DefaultValue>false</DefaultValue>
+            <Value>false</Value>
+          </Attribute>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="ServoControl" ID="969c29ad-a620-4b3d-ab79-06173d72fdf7" RefBaseSystemUnitPath="SystemUnitClassLib/Car/ServoControl">
+        <Attribute Name="currentPos" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
+          <Value>3</Value>
+          <Attribute AttributeDataType="xs:boolean" Name="writable">
+            <DefaultValue>false</DefaultValue>
+            <Value>false</Value>
+          </Attribute>
+        </Attribute>
+        <Attribute Name="desiredPos" AttributeDataType="xs:string">
+          <Value>0</Value>
+        </Attribute>
+      </InternalElement>
+    </InternalElement>
+  </InstanceHierarchy>
+  <InterfaceClassLib ChangeMode="state" Name="AutomationMLInterfaceClassLib">
+    <Description>Standard Automation Markup Language Interface Class Library - Part 1 Content </Description>
+    <Version>2.10</Version>
+    <Copyright>AutomationML e.V.</Copyright>
+    <InterfaceClass Name="AutomationMLBaseInterface">
+      <Attribute Name="AssociatedExternalValue" RefAttributeType="AutomationMLBaseAttributeTypeLib/AssociatedExternalValue">
+        <Attribute AttributeDataType="xs:string" Name="refCAEXAttribute" />
+        <Attribute AttributeDataType="xs:string" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="Direction" />
+      </Attribute>
+      <InterfaceClass Name="Order" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <Attribute AttributeDataType="xs:string" Name="Direction" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </InterfaceClass>
+      <InterfaceClass Name="Port" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <Attribute AttributeDataType="xs:string" Name="Direction" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
+        </Attribute>
+        <Attribute AttributeDataType="xs:string" Name="Category" RefAttributeType="AutomationMLBaseAttributeTypeLib/Category" />
+      </InterfaceClass>
+      <InterfaceClass Name="PPRConnector" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+      <InterfaceClass Name="ExternalDataConnector" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" RefAttributeType="AutomationMLBaseAttributeTypeLib/refURI" />
+        <InterfaceClass Name="COLLADAInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+          <Attribute AttributeDataType="xs:string" Name="refType" />
+          <Attribute AttributeDataType="xs:token" Name="target" />
+        </InterfaceClass>
+        <InterfaceClass Name="PLCopenXMLInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector" />
+        <InterfaceClass Name="ExternalDataReference" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+          <Attribute AttributeDataType="xs:string" Name="MIMEType" RefAttributeType="AutomationMLBaseAttributeTypeLib/MIMEType" />
+        </InterfaceClass>
+      </InterfaceClass>
+      <InterfaceClass Name="Communication" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <InterfaceClass Name="SignalInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+      </InterfaceClass>
+    </InterfaceClass>
+  </InterfaceClassLib>
+  <InterfaceClassLib Name="DTDLInterfaceClassLib">
+    <Version>0</Version>
+    <InterfaceClass Name="Relationship">
+      <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+        <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+        <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
+      </Attribute>
+      <Attribute AttributeDataType="xs:boolean" Name="writable" />
+    </InterfaceClass>
+  </InterfaceClassLib>
+  <RoleClassLib Name="AutomationMLBaseRoleClassLib">
+    <Description>Automation Markup Language Base Role Class Library - Part 1</Description>
+    <Version>2.10.0</Version>
+    <RoleClass ChangeMode="state" Name="AutomationMLBaseRole">
+      <RoleClass Name="Group" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <Attribute AttributeDataType="xs:string" Name="AssociatedFacet" RefAttributeType="AutomationMLBaseAttributeTypeLib/AssociatedFacet" />
+      </RoleClass>
+      <RoleClass Name="Facet" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      <RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      <RoleClass Name="Product" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      <RoleClass Name="Process" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      <RoleClass Name="Structure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <RoleClass Name="ProductStructure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+        <RoleClass Name="ProcessStructure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+        <RoleClass Name="ResourceStructure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+      </RoleClass>
+      <RoleClass Name="ExternalData" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    </RoleClass>
+  </RoleClassLib>
+  <RoleClassLib Name="TwinRoleClassLib">
+    <Version>0</Version>
+    <RoleClass Name="TwinRole">
+      <RoleClass Name="Property">
+        <Attribute AttributeDataType="xs:string" Name="writable" />
+      </RoleClass>
+      <RoleClass Name="Command" />
+      <RoleClass Name="CommandPayload" />
+    </RoleClass>
+  </RoleClassLib>
+  <SystemUnitClassLib Name="SystemUnitClassLib">
+    <Version>0</Version>
+    <SystemUnitClass ID="c60d856f-ccd1-4fb9-954f-bb71ab9d9831" Name="Car">
+      <Attribute Name="name" AttributeDataType="xs:string" />
+      <Attribute Name="ipAddress" AttributeDataType="xs:string" />
+      <ExternalInterface Name="car_to_adapt" ID="8c566885-dda9-4da5-9429-f3f7111acfef" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+      <ExternalInterface Name="external_car_interface" ID="ffcad312-60cf-488f-9891-17a255223375" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+      <SystemUnitClass ID="93d44518-037b-40ea-a094-ee6586004ccf" Name="DistanceSensors">
+        <Attribute Name="front" AttributeDataType="xs:double" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="rear" AttributeDataType="xs:double" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="left" AttributeDataType="xs:double" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="right" AttributeDataType="xs:double" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="MotorControl" ID="ec2b9089-0524-4fe3-b628-0fecaf63a743">
+        <Attribute Name="currentSpeed" AttributeDataType="xs:double" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="desiredSpeed" AttributeDataType="xs:int" />
+        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
+          <Attribute AttributeDataType="xs:boolean" Name="writable">
+            <DefaultValue>false</DefaultValue>
+            <Value>false</Value>
+          </Attribute>
+        </Attribute>
+      </SystemUnitClass>
+      <SystemUnitClass Name="ServoControl" ID="32749a34-a59b-4399-bd55-12ec7a34a96a">
+        <Attribute Name="currentPos" AttributeDataType="xs:double" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
+        <Attribute Name="pin" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
+          <Attribute AttributeDataType="xs:boolean" Name="writable">
+            <DefaultValue>false</DefaultValue>
+            <Value>false</Value>
+          </Attribute>
+        </Attribute>
+        <Attribute Name="desiredPos" AttributeDataType="xs:int" />
+      </SystemUnitClass>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+  <AttributeTypeLib ChangeMode="state" Name="AutomationMLBaseAttributeTypeLib">
+    <Description>Standard Automation Markup Language Attribute Type Library</Description>
+    <Version>2.10.0</Version>
+    <Copyright>AutomationML e.V.</Copyright>
+    <AttributeType Name="AssociatedExternalValue">
+      <Attribute AttributeDataType="xs:string" Name="refCAEXAttribute" />
+      <Attribute AttributeDataType="xs:string" Name="refURI" />
+      <Attribute AttributeDataType="xs:string" Name="Direction" />
+    </AttributeType>
+    <AttributeType AttributeDataType="xs:string" Name="AssociatedFacet" />
+    <AttributeType Name="Cardinality">
+      <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+      <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
+    </AttributeType>
+    <AttributeType AttributeDataType="xs:string" Name="Category" />
+    <AttributeType AttributeDataType="xs:string" Name="Direction">
+      <DefaultValue>InOut</DefaultValue>
+      <Constraint Name="AllowedValues">
+        <NominalScaledType>
+          <RequiredValue>In</RequiredValue>
+          <RequiredValue>Out</RequiredValue>
+          <RequiredValue>InOut</RequiredValue>
+        </NominalScaledType>
+      </Constraint>
+    </AttributeType>
+    <AttributeType AttributeDataType="xs:string" Name="DocLang" />
+    <AttributeType AttributeDataType="" Name="Frame">
+      <Attribute AttributeDataType="xs:double" Name="x">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute AttributeDataType="xs:double" Name="y">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute AttributeDataType="xs:double" Name="z">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute AttributeDataType="xs:double" Name="rx">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute AttributeDataType="xs:double" Name="ry">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute AttributeDataType="xs:double" Name="rz">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+    </AttributeType>
+    <AttributeType AttributeDataType="xs:string" Name="ListType" />
+    <AttributeType AttributeDataType="xs:string" Name="LocalizedAttribute" />
+    <AttributeType AttributeDataType="xs:string" Name="MIMEType" />
+    <AttributeType AttributeDataType="xs:string" Name="OrderedListType" />
+    <AttributeType AttributeDataType="xs:anyURI" Name="refURI" />
+  </AttributeTypeLib>
+  <AttributeTypeLib Name="DTDLAttributeTypeLib">
+    <Version>0</Version>
+    <AttributeType AttributeDataType="xs:string" Name="Loggable" />
+    <AttributeType AttributeDataType="xs:string" Name="Constant" />
+  </AttributeTypeLib>
+</CAEXFile>

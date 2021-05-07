@@ -1,6 +1,6 @@
 ﻿<CAEXFile xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="airquality.aml" SchemaVersion="3.0" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-  <SourceDocumentInformation LastWritingDateTime="2021-05-07T10:10:09.9186179+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.3.3.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="5.3.3.0" />
+  <SourceDocumentInformation LastWritingDateTime="2021-05-07T14:33:30.1253892+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.3.3.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="5.3.3.0" />
   <InstanceHierarchy Name="AirQualityTwins">
     <Version>0</Version>
     <InternalElement ID="8c3b4092-b9d8-4a36-b55a-12b4b3b08a8f" Name="Lobby100" RefBaseSystemUnitPath="SystemUnitClassLib/Room">
@@ -10,9 +10,7 @@
     <InternalElement ID="071e01c5-de7f-494e-ac99-905a834896f7" Name="Raspberry1" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController">
       <ExternalInterface ID="2c865415-6a93-4c93-ac81-18ab710e29e0" Name="room" />
       <InternalElement Name="AirQualitySensor" ID="48094194-3cea-467d-9ef6-8a5c06b3b83e" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController/CO2Sensor">
-        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable" />
-        </Attribute>
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
         <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
       </InternalElement>
     </InternalElement>
@@ -29,9 +27,7 @@
     <InternalElement ID="1073bca7-e584-44d2-99de-10bd8f8543f7" Name="Raspberry2" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController">
       <ExternalInterface ID="59363151-4ea1-47d0-a015-833191369894" Name="room" />
       <InternalElement Name="AirQualitySensor" ID="d2231393-9164-49af-8e31-280d4927193f" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController/CO2Sensor">
-        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable" />
-        </Attribute>
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
         <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
       </InternalElement>
     </InternalElement>
@@ -48,9 +44,7 @@
     <InternalElement Name="Raspberry3" ID="0714f924-8f80-4085-aec4-70661266d108" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController">
       <ExternalInterface ID="74ae10b8-21c7-4a80-8b17-6ba6b7ec1a81" Name="interface_to_room" />
       <InternalElement Name="AirQualitySensor" ID="5e3b4914-bb7d-469c-843d-e2f55a1cb755" RefBaseSystemUnitPath="SystemUnitClassLib/AirQualityController/CO2Sensor">
-        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable" />
-        </Attribute>
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
         <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
       </InternalElement>
     </InternalElement>
@@ -163,9 +157,7 @@
     <SystemUnitClass ID="93d44518-037b-40ea-a094-ee6586004ccf" Name="AirQualityController">
       <ExternalInterface ID="492fde27-a599-4999-80d0-cc08b8d6b894" Name="interface_to_room" />
       <SystemUnitClass ID="cb0b80c4-6dd6-459e-9bcb-ed26014f8b27" Name="CO2Sensor">
-        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant">
-          <Attribute AttributeDataType="xs:boolean" Name="writable" />
-        </Attribute>
+        <Attribute Name="type" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Constant" />
         <Attribute Name="co2Value" AttributeDataType="xs:string" RefAttributeType="DTDLAttributeTypeLib/Loggable" />
         <SupportedRoleClass RefRoleClassPath="" />
       </SystemUnitClass>
