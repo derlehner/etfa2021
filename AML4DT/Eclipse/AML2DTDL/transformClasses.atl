@@ -68,13 +68,13 @@ rule newTelemetry(attr: CAEX!Attribute){
 	do{
 		if(attr.iD.oclType().toString() <> 'Void'){
 			if(attr.version.oclType().toString() <> 'Void'){
-				telem.id <- thisModule.newDTMI('dtmi', attr.iD, attr.Version);
+				telem.id <- thisModule.newDTMI('dtmi', attr.iD, attr.version);
 			}else{
 				telem.id <- thisModule.newDTMI('dtmi', attr.iD, 1);
 			}
 		}else{
 			if(attr.version.oclType().toString() <> 'Void'){
-				telem.id <- thisModule.newDTMI('dtmi', attr.name, attr.Version);
+				telem.id <- thisModule.newDTMI('dtmi', attr.name, attr.version);
 			}else{
 				telem.id <- thisModule.newDTMI('dtmi', attr.name, 1);
 			}
@@ -114,13 +114,13 @@ rule newProperty(attr: CAEX!Attribute){
 	do{
 		if(attr.iD.oclType().toString() <> 'Void'){
 			if(attr.version.oclType().toString() <> 'Void'){
-				prop.id <- thisModule.newDTMI('dtmi', attr.iD, attr.Version);
+				prop.id <- thisModule.newDTMI('dtmi', attr.iD, attr.version);
 			}else{
 				prop.id <- thisModule.newDTMI('dtmi', attr.iD, 1);
 			}
 		}else{
 			if(attr.version.oclType().toString() <> 'Void'){
-				prop.id <- thisModule.newDTMI('dtmi', attr.name, attr.Version);
+				prop.id <- thisModule.newDTMI('dtmi', attr.name, attr.version);
 			}else{
 				prop.id <- thisModule.newDTMI('dtmi', attr.name, 1);
 			}
@@ -213,13 +213,13 @@ unique lazy rule newComponent{
 	do{
 		if(ie.iD.oclType().toString() <> 'Void'){
 			if(ie.version.oclType().toString() <> 'Void'){
-				comp.id <- thisModule.newDTMI('dtmi', ie.iD, ie.Version);
+				comp.id <- thisModule.newDTMI('dtmi', ie.iD, ie.version);
 			}else{
 				comp.id <- thisModule.newDTMI('dtmi', ie.iD, 1);
 			}
 		}else{
 			if(ie.version.oclType().toString() <> 'Void'){
-				comp.id <- thisModule.newDTMI('dtmi', ie.name, ie.Version);
+				comp.id <- thisModule.newDTMI('dtmi', ie.name, ie.version);
 			}else{
 				comp.id <- thisModule.newDTMI('dtmi', ie.name, 1);
 			}
